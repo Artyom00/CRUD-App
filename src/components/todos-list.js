@@ -1,25 +1,13 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
 import axios from 'axios';
-import edit_icon from './edit_icon.png';
-import Button from 'react-bootstrap/Button';
+import ShowTodoList from './ShowTodoList';
 
-const Todo = props => (
-    <tr>
-        <td>{props.todo.todo_description}</td>
-        <td>
-            <Link to={'/edit/' + props.todo._id}>
-                <img src={edit_icon} width='40' height='40' alt=''/>
-            </Link>
-        </td>
-        <td><Button size="sm" variant="danger">Удалить</Button></td>
-    </tr>
-)
 
 export default class TodosList extends Component {
 
     constructor(props) {
         super(props);
+
         this.state = {todos: []};
     }
 
@@ -45,8 +33,8 @@ export default class TodosList extends Component {
 
     todoList() {
         return this.state.todos.map(function(currentTodo, i){
-            return <Todo todo={currentTodo} key={i} />
-        })
+            return <ShowTodoList todo={currentTodo} key={i} />;
+        });
     }
 
     render() {
@@ -66,6 +54,7 @@ export default class TodosList extends Component {
                     </tbody>
                 </table>
             </div>
-        )
+        );
     }
 }
+

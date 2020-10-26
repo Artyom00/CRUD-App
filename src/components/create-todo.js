@@ -11,7 +11,7 @@ export default class CreateTodo extends Component {
         this.onSubmit = this.onSubmit.bind(this);
 
         this.state = {
-            todo_description: '',
+            todo_description: ''
             
         }
     }
@@ -25,7 +25,7 @@ export default class CreateTodo extends Component {
     onSubmit(e) {
         e.preventDefault();
 
-        console.log('Form submitted');
+        console.log('Форма отправлена.');
         console.log(`Todo description: ${this.state.todo_description}`);
        
 
@@ -35,7 +35,7 @@ export default class CreateTodo extends Component {
         }
 
         axios.post('http://localhost:5500/todos/add', new_todo)
-            .then(res => console.log(res.data));
+            .then(res => console.log(res.data)); 
 
         this.setState({
             todo_description: ''
